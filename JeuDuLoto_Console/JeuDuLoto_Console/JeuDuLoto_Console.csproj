@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7B38D9A4-261D-4862-B32F-369F8D0830ED}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>JeuDuLot_Console</RootNamespace>
-    <AssemblyName>JeuDuLot_Console</AssemblyName>
+    <RootNamespace>JeuDuLoto_Console</RootNamespace>
+    <AssemblyName>JeuDuLoto_Console</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
