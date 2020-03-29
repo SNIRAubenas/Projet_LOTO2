@@ -10,7 +10,7 @@ namespace JeuDuLoto_Console.Tests
 {
     public class TestLigne
     {
-        [Fact( DisplayName = "Test Verifier ok" )]
+        [Fact(DisplayName = "Test Verifier ok")]
         public void VerifierTest()
         {
             Ligne ligne1;
@@ -20,7 +20,8 @@ namespace JeuDuLoto_Console.Tests
             ligne1 = new Ligne(nombres);
             Assert.False(ligne1.EstVide);
             // On vérifie la présence d'un nombre
-            Assert.True(ligne1.Verifier(10));
+            foreach( int nombre in nombres )
+                Assert.True(ligne1.Verifier(nombre));
         }
 
         [Fact(DisplayName = "Test Verifier pas ok")]
@@ -71,6 +72,24 @@ namespace JeuDuLoto_Console.Tests
             ligne1 = new Ligne(nombres);
             Assert.False(ligne1.EstVide);
             //                
+        }
+
+        [Fact(DisplayName = "Accès aux Numéros")]
+        public void LigneEnTableauTest()
+        {
+            Ligne ligne1;
+            // On crée une ligne à partir d'un tableau Ok
+            ligne1 = new Ligne(new int[] { 10, 20, 30, 40, 50 });
+            //
+            int nbr;
+            for (int i=1; i < 6;i++)
+            {
+                nbr = ligne1[i];
+                Assert.Equal(nbr, i * 10);
+            }
+            // Un accès hors tableau déclenche une exception
+            Action action = () => nbr = ligne1[10] ;
+            Exception exc = Assert.Throws<IndexOutOfRangeException>(action);
         }
     }
 }
