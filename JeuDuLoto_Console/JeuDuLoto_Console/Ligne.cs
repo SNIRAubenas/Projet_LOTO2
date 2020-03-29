@@ -8,15 +8,33 @@ namespace JeuDuLoto_Console
 {
     public class Ligne
     {
-        // 
+        // Les 9 colonnes de la lignes
         int[] lesNumeros;
+        // Les Numéros marqués sur la ligne ( 5 au Max )
+        List<int> marquage;
 
+        /// <summary>
+        /// Constructeur par défaut, la ligne est vide et non marquée
+        /// </summary>
         // Constructeur par défaut
         public Ligne()
         {
             lesNumeros = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            Nettoyage();
         }
 
+        /// <summary>
+        /// DéMarque completement un ligne :
+        /// on efface la ligne mais on garde son contenu
+        /// </summary>
+        public void Nettoyage()
+        {
+            marquage = new List<int>();
+        }
+
+        /// <summary>
+        /// Vérifie si une ligne est vide (Non Initialisée)
+        /// </summary>
         public bool EstVide
         {
             get
@@ -25,7 +43,7 @@ namespace JeuDuLoto_Console
                 bool vide = true;
                 foreach (int number in lesNumeros)
                 {
-                    if ( number != 0 )
+                    if (number != 0)
                     {
                         vide = false;
                         break;
@@ -35,6 +53,10 @@ namespace JeuDuLoto_Console
             }
         }
 
+        /// <summary>
+        /// Constructeur à paramètre : Un tableau de 5 valeur pour initialiser la ligne
+        /// </summary>
+        /// <param name="initNumbers"></param>
         // Ici, on appelle le constructeur par défaut, avant d'executer le code
         public Ligne(int[] initNumbers) : this()
         {
@@ -63,23 +85,78 @@ namespace JeuDuLoto_Console
             }
         }
 
-        Boolean EstQuine(int[] NombresAVerifier)
+        /// <summary>
+        /// Indique si une ligne est une Quine
+        /// </summary>
+        public bool EstQuine
         {
+            get
+            {
+                // C'est le cas si on a marqué les 5 nombres de la Ligne
+                return (marquage.Count == 5);
+            }
+        }
+
+        /// <summary>
+        /// Accède à la ligne comme à un tableau
+        /// </summary>
+        /// <param name="index">La position à lire (entre 0 et 8)</param>
+        /// <returns>Le nombre présent dans le carton</returns>
+        public int this[int index]
+        {
+            get
+            {
+                // Est ce que l'index est correct ?
+                if ((index >= 0) && (index < this.lesNumeros.Length))
+                {
+                    return this.lesNumeros[index];
+                }
+                // Non => Exception
+                throw new IndexOutOfRangeException();
+            }
+        }
+
+        /// <summary>
+        /// Test si un nombre est présent dans la ligne
+        /// </summary>
+        /// <param name="NombreAVerifier"></param>
+        /// <returns></returns>
+        public bool Verifier(int NombreAVerifier)
+        {
+            if ((NombreAVerifier >= 1) && (NombreAVerifier <= 90))
+            {
+                bool exist = false;
+                foreach (int number in lesNumeros)
+                {
+                    if (number == NombreAVerifier)
+                    {
+                        exist = true;
+                        break;
+                    }
+                }
+                return exist;
+            }
             return false;
         }
 
-        Boolean EstPresent(int NombreAVerifier)
+        /// <summary>
+        /// Marque le nombre passé en paramètre sur la ligne.
+        /// Il n'est marqué que si présent
+        /// </summary>
+        /// <param name="NombreAMarquer"></param>
+        /// <returns>Indique si le nombre a été marqué</returns>
+        public bool Marquer(int NombreAMarquer)
         {
-            bool exist = false;
-            foreach (int number in lesNumeros)
+            if (Verifier(NombreAMarquer))
             {
-                if (number == NombreAVerifier)
+                // Déjà présent dans le marquage ?
+                if ( !marquage.Contains(NombreAMarquer))
                 {
-                    exist = true;
-                    break;
+                    marquage.Add(NombreAMarquer);
                 }
+                return true;
             }
-            return exist;
+            return false;
         }
     }
 }
