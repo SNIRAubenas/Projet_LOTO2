@@ -68,9 +68,9 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JeuDuLoto_Console\JeuDuLoto_Console.csproj">
-      <Project>{7b38d9a4-261d-4862-b32f-369f8d0830ed}</Project>
-      <Name>JeuDuLoto_Console</Name>
+    <ProjectReference Include="..\Loto\Loto.csproj">
+      <Project>{0bf2f748-38fc-467d-b96d-bd07ad9b6a67}</Project>
+      <Name>Loto</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

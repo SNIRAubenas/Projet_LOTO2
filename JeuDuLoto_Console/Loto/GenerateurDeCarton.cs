@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JeuDuLoto_Console
+namespace Loto
 {
-    class GenerateurDeCarton
+    public class GenerateurDeCarton
     {
         // Le générateur de nombre aléatoire utilisé pour la durée d'execution
         Random alea;

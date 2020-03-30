@@ -1,12 +1,12 @@
 ﻿using Xunit;
-using JeuDuLoto_Console;
+using Loto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JeuDuLoto_Console.Tests
+namespace Loto.Tests
 {
     public class CartonTests
     {

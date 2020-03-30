@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JeuDuLoto_Console")]
+[assembly: AssemblyTitle("Loto")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("JeuDuLoto_Console")]
+[assembly: AssemblyProduct("Loto")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7b38d9a4-261d-4862-b32f-369f8d0830ed")]
+[assembly: Guid("0bf2f748-38fc-467d-b96d-bd07ad9b6a67")]
 
 // Version information for an assembly consists of the following four values:
 //

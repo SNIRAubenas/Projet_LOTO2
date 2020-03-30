@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using JeuDuLoto_Console;
+using Loto;
 using Xunit;
 
-namespace JeuDuLoto_Console.Tests
+namespace Loto.Tests
 {
     public class TestLigne
     {
