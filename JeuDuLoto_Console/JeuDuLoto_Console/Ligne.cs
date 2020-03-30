@@ -15,46 +15,41 @@ namespace JeuDuLoto_Console
 
         /// <summary>
         /// Constructeur par défaut, la ligne est vide et non marquée
+        /// Il est privé, donc inaccessible de l'extérieur
         /// </summary>
-        // Constructeur par défaut
-        public Ligne()
+        private Ligne()
         {
             lesNumeros = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            Nettoyage();
+            Nettoyer();
+        }
+
+        /// <summary>
+        /// Constructeur par copie.
+        /// L'objet retourné comprend les mêmes informations que l'original, mais...C'est une copie !
+        /// </summary>
+        /// <param name="ligneACopie"></param>
+        public Ligne( Ligne ligneACopier ):this()
+        {
+            // On copie les numéros
+            ligneACopier.lesNumeros.CopyTo(this.lesNumeros, 0);
+            // et ceux déjà marqués
+            this.marquage.AddRange(ligneACopier.marquage);
         }
 
         /// <summary>
         /// DéMarque completement un ligne :
         /// on efface la ligne mais on garde son contenu
         /// </summary>
-        public void Nettoyage()
+        public void Nettoyer()
         {
             marquage = new List<int>();
         }
 
-        /// <summary>
-        /// Vérifie si une ligne est vide (Non Initialisée)
-        /// </summary>
-        public bool EstVide
-        {
-            get
-            {
-                // Une ligne est vide si tous les numéros sont à zéro
-                bool vide = true;
-                foreach (int number in lesNumeros)
-                {
-                    if (number != 0)
-                    {
-                        vide = false;
-                        break;
-                    }
-                }
-                return vide;
-            }
-        }
 
         /// <summary>
         /// Constructeur à paramètre : Un tableau de 5 valeur pour initialiser la ligne
+        /// Les nombres peuvent être dans n'importe quel ordre
+        /// Il n'y a pas de doublon
         /// </summary>
         /// <param name="initNumbers"></param>
         // Ici, on appelle le constructeur par défaut, avant d'executer le code
@@ -68,6 +63,10 @@ namespace JeuDuLoto_Console
             // On va remplir et vérifier
             foreach (int number in initNumbers)
             {
+                if ( (number <= 0) || ( number > 90 ) )
+                {
+                    throw new Exception("Chaque numéro doit être compris entre 1 et 90.");
+                }
                 // Quelle dizaine ?
                 int dizaine = number / 10;
                 // Cas particulier
@@ -150,7 +149,7 @@ namespace JeuDuLoto_Console
             if (Verifier(NombreAMarquer))
             {
                 // Déjà présent dans le marquage ?
-                if ( !marquage.Contains(NombreAMarquer))
+                if (!marquage.Contains(NombreAMarquer))
                 {
                     marquage.Add(NombreAMarquer);
                 }
