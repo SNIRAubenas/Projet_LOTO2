@@ -28,7 +28,7 @@ namespace JeuDuLoto_Console
         /// L'objet retourné comprend les mêmes informations que l'original, mais...C'est une copie !
         /// </summary>
         /// <param name="ligneACopie"></param>
-        public Ligne( Ligne ligneACopier ):this()
+        public Ligne(Ligne ligneACopier) : this()
         {
             // On copie les numéros
             ligneACopier.lesNumeros.CopyTo(this.lesNumeros, 0);
@@ -63,7 +63,7 @@ namespace JeuDuLoto_Console
             // On va remplir et vérifier
             foreach (int number in initNumbers)
             {
-                if ( (number <= 0) || ( number > 90 ) )
+                if ((number <= 0) || (number > 90))
                 {
                     throw new Exception("Chaque numéro doit être compris entre 1 et 90.");
                 }
@@ -156,6 +156,17 @@ namespace JeuDuLoto_Console
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Retourne la liste des nombres marqués sur la ligne
+        /// </summary>
+        public List<int> Marques
+        {
+            get
+            {
+                return new List<int>(this.marquage);
+            }
         }
     }
 }
