@@ -127,7 +127,7 @@ namespace JeuDuLoto_Console
         {
             get
             {
-                bool plein = false;
+                bool plein = true;
                 for (int i = 0; i < lignes.Length; i++)
                 {
                     plein = plein && this.lignes[i].EstQuine;
