@@ -21,9 +21,9 @@ namespace Loto
         /// </summary>
         /// <param name="methode"></param>
         /// <returns></returns>
-        public Carton Generer( int methode )
+        public Carton Generer(int methode)
         {
-            if ( methode == 1)
+            if (methode == 1)
                 return GenererMethode1();
             else
                 return GenererMethode2();
@@ -60,16 +60,20 @@ namespace Loto
                     // On tire un nombre au hasard 
                     // Intervalle [1,91[
                     int hasard;
+                    int colNum;
                     do
                     {
                         do
                         {
                             hasard = alea.Next(1, 91);
                         } while (numeros.Contains(hasard)); // Dans l'ensemble des numeros déjà tirés ?
-                    } while (dizaine.Contains(hasard / 10)); // Colonne déjà tirée pour cette ligne
+                        colNum = hasard / 10;
+                        if (colNum == 9)
+                            colNum = 8;
+                    } while (dizaine.Contains(colNum)); // Colonne déjà tirée pour cette ligne
                     // Tout est ok, on garded donc ces infos
                     numeros.Add(hasard);
-                    dizaine.Add(hasard / 10);
+                    dizaine.Add(colNum);
                     // et on stocke
                     contenu[numeroLigne, colonne] = hasard;
                 }
@@ -91,13 +95,13 @@ namespace Loto
             // Methode 1
             // On crée une List de List<int>
             // !! ATTENTION !! La List<int> n'a pas encore été crée !!
-            List < List<int> > grille = new List< List<int> >();
+            List<List<int>> grille = new List<List<int>>();
             //
-            for(int dizaine = 0; dizaine < 9; dizaine ++ )
+            for (int dizaine = 0; dizaine < 9; dizaine++)
             {
                 // On crée la liste de nombres
                 List<int> insideList = new List<int>();
-                for ( int unite=0; unite <=9; unite ++ )
+                for (int unite = 0; unite <= 9; unite++)
                 {
                     // Cas Particulier N°1
                     if ((unite == 0) && (dizaine == 0))
@@ -106,7 +110,7 @@ namespace Loto
                     insideList.Add((10 * dizaine) + unite);
                 }
                 // Cas Particulier N°2
-                if( dizaine == 8)
+                if (dizaine == 8)
                 {
                     // On ajoute 90 dans la liste : 10*8 + 10
                     insideList.Add((10 * dizaine) + 10);
@@ -117,12 +121,12 @@ namespace Loto
             // Ok, donc maintenant, on va générer 3 tableaux de 5 Nombres
             // 1 tableau de 5 nombres pour chaque Ligne du Carton
             int[,] contenu = new int[3, 5];
-            for ( int numeroLigne = 0; numeroLigne < 3; numeroLigne++)
+            for (int numeroLigne = 0; numeroLigne < 3; numeroLigne++)
             {
                 // Pour chaque ligne, on ne peut mettre qu'un nombre d'une colonne
                 // On va donc garder la liste des colonnes déjà tirées
                 List<int> dizaine = new List<int>();
-                for ( int numero = 0; numero < 5; numero++)
+                for (int numero = 0; numero < 5; numero++)
                 {
                     // On tire un nombre au hasard pour dire dans quelle colonne on veut un nombre 
                     // Intervalle [0,9[
