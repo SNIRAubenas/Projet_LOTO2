@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carton.cs" />
-    <Compile Include="Generateur.cs" />
+    <Compile Include="GenerateurDeCarton.cs" />
     <Compile Include="Ligne.cs" />
     <Compile Include="Presentateur.cs" />
     <Compile Include="Program.cs" />

@@ -10,7 +10,7 @@ namespace JeuDuLoto_Console
     {
         static void Main(string[] args)
         {
-            Generateur fabrique = new Generateur();
+            GenerateurDeCarton fabrique = new GenerateurDeCarton();
 
             Carton unCarton = fabrique.Generer();
 
