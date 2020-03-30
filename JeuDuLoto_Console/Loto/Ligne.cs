@@ -116,6 +116,36 @@ namespace Loto
         }
 
         /// <summary>
+        /// Accède à la ligne comme un tableau d'informations à deux dimensions :
+        /// 0 : Les Numéros -> Comme this[int index]
+        /// 1 : Indique si le numéro est marqué : 0:Non, 1:Oui
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public int this[int info, int index]
+        {
+            get
+            {
+                if ((info >= 0) && (info <= 1))
+                {
+                    switch (info)
+                    {
+                        case 0:
+                            return this[index];
+                        case 1:
+                            int nbre = this[index];
+                            // l'écrite xxx ? yyy : zzz est équivalente à 
+                            // Si xxx Alors yyy Sinon zzz
+                            return marquage.Contains(nbre) ? 1 : 0;
+                    }
+                }
+                // Non => Exception
+                throw new IndexOutOfRangeException();
+            }
+        }
+
+        /// <summary>
         /// Test si un nombre est présent dans la ligne
         /// </summary>
         /// <param name="NombreAVerifier"></param>
