@@ -16,13 +16,32 @@ namespace Loto
             alea = new Random((int)DateTime.Now.Ticks);
         }
 
+        /// <summary>
+        /// Génération d'un carton en choisissant une des deux méthodes proposées
+        /// </summary>
+        /// <param name="methode"></param>
+        /// <returns></returns>
+        public Carton Generer( int methode )
+        {
+            if ( methode == 1)
+                return GenererMethode1();
+            else
+                return GenererMethode2();
+        }
+
+        /// <summary>
+        /// Generation d'un carton
+        /// </summary>
+        /// <returns></returns>
         public Carton Generer()
         {
-            //return GenererMethode1();
             return GenererMethode2();
         }
 
-
+        /// <summary>
+        ///  On tire des nombres entre 1 et 90; on les mémorise pour ne pas les tirer deux fois
+        /// </summary>
+        /// <returns></returns>
         private Carton GenererMethode2()
         {
             // On va générer 3 tableaux de 5 Nombres
@@ -60,7 +79,13 @@ namespace Loto
             return nouveauCarton;
         }
 
-
+        /// <summary>
+        /// On construit une Grille de 8 Colonnes
+        /// Dans chaque colonne, on met les nombres possibles
+        /// On tire une colonne au hasard, puis on tire un nombre au hasard parmi ceux restants
+        /// On supprime de la grille les nombres déjà tirés
+        /// </summary>
+        /// <returns></returns>
         private Carton GenererMethode1()
         {
             // Methode 1
