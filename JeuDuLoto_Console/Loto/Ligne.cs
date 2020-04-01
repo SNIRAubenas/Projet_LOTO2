@@ -36,6 +36,7 @@ namespace Loto
             this.marquage.AddRange(ligneACopier.marquage);
         }
 
+
         /// <summary>
         /// DéMarque completement un ligne :
         /// on efface la ligne mais on garde son contenu
@@ -144,6 +145,7 @@ namespace Loto
                 throw new IndexOutOfRangeException();
             }
         }
+
 
         /// <summary>
         /// Test si un nombre est présent dans la ligne

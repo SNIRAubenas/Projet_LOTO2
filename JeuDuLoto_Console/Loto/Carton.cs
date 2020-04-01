@@ -16,7 +16,9 @@ namespace Loto
     /// </summary>
     public class Carton
     {
-        // Un tableau de ligne de taille 3
+        /// <summary>
+        /// Un tableau de ligne de taille 3
+        /// </summary>
         Ligne[] lignes;
 
         // Ce constructeur est private, il n'est donc pas visible de l'extérieur
