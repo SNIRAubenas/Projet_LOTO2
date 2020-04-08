@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.temp = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.temp);
             this.panel1.Location = new System.Drawing.Point(21, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(534, 281);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // temp
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 50);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "00";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.temp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temp.Location = new System.Drawing.Point(15, 11);
+            this.temp.Name = "temp";
+            this.temp.Size = new System.Drawing.Size(50, 50);
+            this.temp.TabIndex = 1;
+            this.temp.Text = "00";
+            this.temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
@@ -70,7 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label temp;
     }
 }
 
