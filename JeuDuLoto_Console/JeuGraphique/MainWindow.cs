@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,12 +34,12 @@ namespace JeuDuLoto_Graphique
             creerLigne(ligne2, nombreLigne+1);
             creerLigne(ligne3, nombreLigne+2);
 
-
+            modifChiffre(ligne1, 5);
 
         }
 
         /// <summary>
-        /// Créer une ligne en type List contenant des Label et chaque ittérations correspond à une case de cette dîte ligne.
+        /// Créer une ligne en type List contenant des Label et chaque ittérations dans la liste correspond à une case de cette dîte ligne.
         /// </summary>
         /// <param name="ligne"></param>
         /// <param name="nombreLigne"></param>
@@ -46,6 +47,7 @@ namespace JeuDuLoto_Graphique
         void creerLigne(List<Label> ligne,int nombreLigne)
         {
             Label temp;
+            Random rd = new Random();
 
             int posX = 15;
             int posY = 11;
@@ -58,10 +60,10 @@ namespace JeuDuLoto_Graphique
                 posY = +202;
             }
            
-           
-
                 for (int i = 0; i < 9; i++)
                 {
+
+                    
                     temp = new Label();
                     temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                     temp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,7 +71,7 @@ namespace JeuDuLoto_Graphique
                     temp.Name = "label1";
                     temp.Size = new System.Drawing.Size(50, 50);
                     temp.TabIndex = 1;
-                    temp.Text = "00";
+                    temp.Text = rd.Next(0,99).ToString();
                     temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
                     this.panel1.Controls.Add(temp);
@@ -78,10 +80,16 @@ namespace JeuDuLoto_Graphique
                     posX = posX + temp.Size.Width + 6;
                 }
 
-               
-
-            
         }
+
+
+        void modifChiffre(List<Label> ligne, int colonne)
+        {
+            temp = new Label();
+            temp.Text = "52";
+        }
+
+
         private void label2_Click(object sender, EventArgs e)
         {
 
